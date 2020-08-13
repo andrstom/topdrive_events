@@ -103,7 +103,7 @@ class EventsManager {
                     continue;
                 }
                 
-                if (($event1['event_start'] <= $event2['event_start']) && ($event2['event_start'] <= $event2['event_stop']) && ($event2['event_stop'] <= $event1['event_stop'])) {
+                if ($event1['event_start'] < $event2['event_stop'] && $event2['event_start'] < $event1['event_start']) {
                     $overlapEvents[] = array(
                         'primaryEvent' => $event1['activity'],
                         'overlapEvent' => $event2['activity']
