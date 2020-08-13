@@ -1,0 +1,14 @@
+parameters:
+
+database:
+#	dsn: 'mysql:host=127.0.0.1;dbname=events'
+#	user: root
+#	password: 
+#	options: 
+#		lazy: yes
+
+	dsn: 'mysql:host=innodb.endora.cz;dbname=topdriveevents'
+	user: andrstom
+	password: 3qxngtixt
+	options: 
+		lazy: yes

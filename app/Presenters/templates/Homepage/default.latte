@@ -1,0 +1,33 @@
+{block content}
+<div class="container">
+    <div class="row">
+        <h1>Events</h1>
+        
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h2>Vložit event</h2>
+                    {include bootstrap-form eventsForm}
+                </div>
+                <div class="col-md-4">
+                    <h2>Všechny eventy</h2>
+                    {*dump $events*}
+                    {foreach $events as $event}
+                         <p>
+                             {$event->activity} <br> ({$event->eventStartTime|date: "j.n.Y h:i"} - {$event->eventStopTime|date: "j.n.Y h:i"})<br>
+                             <a n:href="Homepage:deleteEvent $event->id" class="btn btn-danger" title="Smazat">Smazat</a>
+                         </p>
+                         <hr>
+                    {/foreach}
+                </div>
+                <div class="col-md-4">
+                    <h2>Překrývající se eventy</h2>
+                    {foreach $conflictEvents as $event}
+                         <p>{$event['primaryEvent']} - {$event['overlapEvent']} </p>
+                    {/foreach}
+                </div>
+            </div>
+            <hr>
+        </div>
+    </div>
+</div
